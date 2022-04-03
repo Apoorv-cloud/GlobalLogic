@@ -1,17 +1,22 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_workshop/projects.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Workshop',
+      // Application name
+      title: 'FLutter Workshop',
       debugShowCheckedModeBanner: false,
+      // Application theme data, you can set the colors for the application as
+      // you want
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
       ),
+      // A widget which will be started on application startup
       home: Profile(),
     );
   }
@@ -22,68 +27,69 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // The title text which will be shown on the action bar
         title: Text('PORTFOLIO'),
         backgroundColor: Colors.blue.shade900,
-      ), //AppBar
+      ),
       body: Column(
         children: <Widget>[
           Container(
             padding: EdgeInsets.all(15),
-            //height: 200,
             color: Colors.blue,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     CircleAvatar(
                       child: Icon(Icons.call),
-                      minRadius: 35.0,
+                      minRadius: 35,
                       backgroundColor: Colors.blue.shade900,
                     ),
                     CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 60,
-                      backgroundImage: AssetImage(
-                        'lib/assets/ap.png',
-                      ),
+                      backgroundImage: AssetImage('lib/crop.jpg'),
+                      minRadius: 60,
+                      backgroundColor: Colors.blue.shade900,
                     ),
                     CircleAvatar(
                       child: Icon(Icons.message),
-                      minRadius: 35.0,
+                      minRadius: 35,
                       backgroundColor: Colors.blue.shade900,
-                    )
+                    ),
                   ],
                 ),
-                SizedBox(height: 20),
+                SizedBox(
+                  height: 10,
+                ),
                 Text(
                   'Apoorv Maheshwari',
                   style: TextStyle(
-                    color: Colors.white,
                     fontSize: 20,
+                    color: Colors.white,
                   ),
-                ),
+                )
               ],
             ),
-          ), //Container
-
+          ),
           Padding(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(14),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text('Bio', style: TextStyle(color: Colors.blue, fontSize: 24)),
+                Text(
+                  'Bio',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 22,
+                  ),
+                ),
                 Divider(
                   height: 15,
                   thickness: 2,
-                  //color: Colors.black
                 ),
-                Text(
-                    'Flutter Developer | Certified ISO/IEC 27001 Information Security Associate™ | Internship Trainee @AI NXT | Senior Coordinator @Blockchain Research Lab'),
+                Text('Flutter Developer | Certified ISO/IEC 27001 Information Security Associate™ | Internship Trainee @AI NXT | Senior Coordinator @Blockchain Research Lab'),
                 SizedBox(
-                  width: double.infinity,
-                  height: 15,
+                  height: 8,
                 ),
                 ListTile(
                   leading: Icon(Icons.mail, color: Colors.blue),
@@ -103,7 +109,7 @@ class Profile extends StatelessWidget {
                       color: Colors.blue,
                     ),
                   ),
-                  subtitle: Text('@maheshwari__apoorv'),
+                  subtitle: Text('maheshwari__apoorv'),
                 ),
                 ListTile(
                   leading: Icon(Icons.call, color: Colors.blue),
@@ -116,23 +122,18 @@ class Profile extends StatelessWidget {
                   subtitle: Text('+91 8755289525'),
                 ),
               ],
-            ), //Column
+            ),
           ),
-          // ignore: deprecated_member_use
           RaisedButton(
             color: Colors.blue,
+            onPressed: () {},
             child: Text(
               'PROJECTS',
-              style: TextStyle(fontSize: 15, color: Colors.white),
+              style: TextStyle(
+                fontSize: 15,
+                color: Colors.white,
+              ),
             ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Projects(),
-                ),
-              );
-            },
           ),
         ],
       ),
